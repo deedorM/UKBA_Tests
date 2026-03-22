@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UKBA_TestExploration")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fcc42677e6f1a9b08a600716153f930385ebb67f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d1cbfea49c9384bc3feb155e2868842f62c515df")]
 [assembly: System.Reflection.AssemblyProductAttribute("UKBA_TestExploration")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UKBA_TestExploration")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
