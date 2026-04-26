@@ -4,15 +4,6 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-strategy:
-  matrix:
-    chromium:
-      browser: chromium
-    firefox:
-      browser: firefox
-    webkit:
-      browser: webkit
-
 steps:
 - task: NodeTool@0
   inputs:
@@ -22,21 +13,21 @@ steps:
   displayName: Install dependencies
 
 - script: npx playwright install --with-deps
-  displayName: Install browsers
+  displayName: Install Playwright browsers
 
-- script: npx playwright test --project=$(browser)
-  displayName: Run tests on $(browser)
+- script: npx playwright test
+  displayName: Run Playwright tests
 
-- task: CopyFiles@2
+- task: PublishTestResults@2
   condition: always()
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/results.xml'
+    failTaskOnFailedTests: true
 
-- task: PublishBuildArtifacts@1
+- task: PublishPipelineArtifact@1
   condition: always()
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    targetPath: 'playwright-report'
+    artifact: 'playwright-report'
+    publishLocation: 'pipeline'
