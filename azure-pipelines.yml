@@ -9,7 +9,7 @@ steps:
   inputs:
     version: '20.x'
 
-- script: npm ci
+- script: npm install
   displayName: Install dependencies
 
 - script: npx playwright install --with-deps
@@ -17,6 +17,10 @@ steps:
 
 - script: npx playwright test
   displayName: Run Playwright tests
+
+- script: mkdir -p playwright-report
+  condition: always()
+  displayName: Ensure report folder exists
 
 - task: PublishPipelineArtifact@1
   condition: always()
