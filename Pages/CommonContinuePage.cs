@@ -9,11 +9,11 @@
             _page = page;
         }
 
-        ILocator ContinueBtn => _page.Locator(".gem-c-button.govuk-button.gem-c-button--bottom-margin");
+        ILocator ContinueButton => _page.Locator(".gem-c-button.govuk-button.gem-c-button--bottom-margin");
 
         public Task ClickContinue()
         {
-            return ContinueBtn.ClickAsync();
+            return ContinueButton.ClickAsync();
         }
     }
 }
